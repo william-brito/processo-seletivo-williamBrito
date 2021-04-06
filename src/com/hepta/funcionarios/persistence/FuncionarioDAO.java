@@ -11,13 +11,13 @@ import com.hepta.funcionarios.entity.Funcionario;
 public class FuncionarioDAO {
 
 	public void save(Funcionario Funcionario) throws Exception {
-		EntityManager em = HibernateUtil.getEntityManager();
+		EntityManager em = HibernateUtil.getEntityManager(); //do HibernateUtil.java
 		try {
-			em.getTransaction().begin();
+			em.getTransaction().begin(); //iniciar transação com o Banco de Dados
 			em.persist(Funcionario);
-			em.getTransaction().commit();
+			em.getTransaction().commit(); //confirmar
 		} catch (Exception e) {
-			em.getTransaction().rollback();
+			em.getTransaction().rollback(); //desfazer em caso de inconsistência
 			throw new Exception(e);
 		} finally {
 			em.close();
@@ -44,8 +44,8 @@ public class FuncionarioDAO {
 		EntityManager em = HibernateUtil.getEntityManager();
 		try {
 			em.getTransaction().begin();
-			Funcionario Funcionario = em.find(Funcionario.class, id);
-			em.remove(Funcionario);
+			Funcionario Funcionario = em.find(Funcionario.class, id); // "monitorar" entidade, antes de deletar
+			em.remove(Funcionario); //remover funcionário
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
@@ -60,7 +60,7 @@ public class FuncionarioDAO {
 		EntityManager em = HibernateUtil.getEntityManager();
 		Funcionario Funcionario = null;
 		try {
-			Funcionario = em.find(Funcionario.class, id);
+			Funcionario = em.find(Funcionario.class, id); //buscar 
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			throw new Exception(e);

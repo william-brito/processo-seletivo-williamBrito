@@ -16,24 +16,24 @@ public class Funcionario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_FUNCIONARIO")
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //gerar os ID's automaticamente
+	@Column(name = "ID_FUNCIONARIO") //nome da coluna na tabela do Banco de Dados
 	private Integer id;
 
-	@Column(name = "NOME")
+	@Column(name = "NOME") //nome da coluna na tabela do Banco de Dados
 	private String nome;
 
 	@ManyToOne
-	@JoinColumn(name = "FK_SETOR")
+	@JoinColumn(name = "FK_SETOR") //nome da coluna na tabela do Banco de Dados
 	private Setor setor;
 
-	@Column(name = "NU_SALARIO")
+	@Column(name = "NU_SALARIO") //nome da coluna na tabela do Banco de Dados
 	private Double salario;
 
-	@Column(name = "DS_EMAIL")
+	@Column(name = "DS_EMAIL") //nome da coluna na tabela do Banco de Dados
 	private String email;
 
-	@Column(name = "NU_IDADE")
+	@Column(name = "NU_IDADE") //nome da coluna na tabela do Banco de Dados
 	private Integer idade;
 
 	public Integer getId() {
