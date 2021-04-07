@@ -321,8 +321,18 @@ table.b-table > tbody > tr.b-table-details > td {
   --color-text-dark:#3D3D3D;
 }
 
- body{
+html, body{
 	background-color: var(--color-background);
+}
+
+
+a {
+	text-decoration: none; 
+	
+}
+
+a:hover{
+ opacity: 0.8;
 }
 
 
