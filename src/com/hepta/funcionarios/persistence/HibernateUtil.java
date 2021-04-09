@@ -24,6 +24,7 @@ public class HibernateUtil {
 	
 	public static void createEntityManagerFactory(){
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME); // configurações do persistence.xml
+		
 	}
 	
 	public static EntityManager getEntityManager(){

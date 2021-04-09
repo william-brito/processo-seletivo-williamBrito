@@ -48,12 +48,22 @@ public class FuncionarioService {
 	 * @return response 200 (OK) - Conseguiu adicionar
 	 */
 	@Path("/")
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON) //post => consumir/receber JSON
 	@Produces(MediaType.APPLICATION_JSON)
 	@POST
-	public Response FuncionarioCreate(Funcionario Funcionario) {
-		return Response.status(Status.NOT_IMPLEMENTED).build();
+	public Response FuncionarioCreate(Funcionario func) {
+		func  = new Funcionario();
+		try {
+			 dao.save(func);
+			
+		} catch (Exception e) {
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao inserir o funcionário!").build();
+		}
+		
+		return Response.status(Status.OK).build();
 	}
+	
+	
 
 	/**
 	 * Lista todos os Funcionarios
@@ -64,14 +74,14 @@ public class FuncionarioService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
 	public Response FuncionarioRead() {
-		List<Funcionario> Funcionarios = new ArrayList<>();
+		List<Funcionario> func = new ArrayList<>();
 		try {
-			Funcionarios = dao.getAll();
+			func = dao.getAll();
 		} catch (Exception e) {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar Funcionarios").build();
 		}
 
-		GenericEntity<List<Funcionario>> entity = new GenericEntity<List<Funcionario>>(Funcionarios) {
+		GenericEntity<List<Funcionario>> entity = new GenericEntity<List<Funcionario>>(func) {
 		};
 		return Response.status(Status.OK).entity(entity).build();
 	}
@@ -84,12 +94,21 @@ public class FuncionarioService {
 	 * @return response 200 (OK) - Conseguiu atualizar
 	 */
 	@Path("/{id}")
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON) //put => consumir/receber JSON
 	@Produces(MediaType.APPLICATION_JSON)
 	@PUT
-	public Response FuncionarioUpdate(@PathParam("id") Integer id, Funcionario Funcionario) {
-		return Response.status(Status.NOT_IMPLEMENTED).build();
+	public Response FuncionarioUpdate(@PathParam("id") Integer id, Funcionario func) {
+		func  = new Funcionario();
+		try {
+			 dao.update(func);
+			
+		} catch (Exception e) {
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao atualizar o funcionário!").build();
+		}
+		
+		return Response.status(Status.OK).build();
 	}
+	
 
 	/**
 	 * Remove um Funcionario
@@ -101,7 +120,15 @@ public class FuncionarioService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@DELETE
 	public Response FuncionarioDelete(@PathParam("id") Integer id) {
-		return Response.status(Status.NOT_IMPLEMENTED).build();
+		try {
+			 dao.delete(id);
+			
+		} catch (Exception e) {
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao remover o funcionário!").build();
+		}
+		
+		return Response.status(Status.OK).build();
 	}
+	
 
 }
