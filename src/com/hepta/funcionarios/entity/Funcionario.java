@@ -35,6 +35,19 @@ public class Funcionario implements Serializable {
 
 	@Column(name = "NU_IDADE") //nome da coluna na tabela do Banco de Dados
 	private Integer idade;
+	
+	public Funcionario() {
+		
+	}
+	
+	public Funcionario(Integer id, String nome, Setor setor, Double salario, String email, Integer idade) {
+		this.id = id;
+		this.nome = nome;
+		this.setor = setor;
+		this.salario = salario;
+		this.email = email;
+		this.idade = idade;
+	}
 
 	public Integer getId() {
 		return id;

@@ -20,6 +20,14 @@ public class Setor implements Serializable {
 
 	@Column(name = "NOME")
 	private String nome;
+	
+	public Setor() {
+	}
+
+	public Setor(Integer id, String nome) {
+		this.id = id;
+		this.nome = nome;
+	}
 
 	public Integer getId() {
 		return id;

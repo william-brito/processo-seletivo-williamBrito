@@ -14,14 +14,7 @@ public class FuncionarioDAO {
 
 	public void save(Funcionario func) throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager(); //do HibernateUtil.java
-		//func = new Funcionario();
-		
-		//func.setNome("tester");
-		//func.setSetor(new Setor());
-	    //func.setSalario(4.000);
-		//func.setEmail("teste@teste");
-		//func.setIdade(30);
-		
+				
 		try {
 			em.getTransaction().begin(); //iniciar transação com o Banco de Dados
 			em.persist(func);
