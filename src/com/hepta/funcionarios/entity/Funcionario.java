@@ -96,5 +96,7 @@ public class Funcionario implements Serializable {
 	public void setIdade(Integer idade) {
 		this.idade = idade;
 	}
+	
+	
 
 }
