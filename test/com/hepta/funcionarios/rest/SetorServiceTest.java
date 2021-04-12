@@ -14,7 +14,7 @@ class SetorServiceTest {
 		Setor s = new Setor();
 		
 		s.setId(null); // Está como "null" pois as ID's são geradas automaticamente!
-	    s.setNome("T.I");
+	    s.setNome("Financeiro");
 	    
 	    SetServ.CriarSetor(s);
 	}

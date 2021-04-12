@@ -51,15 +51,15 @@ class FuncionarioServiceTest {
 		Funcionario f = new Funcionario();
 		Setor s = new Setor();
 
-		s.setId(4); // Definir uma ID correspondente ao Setor na tabela "Setor".
+		s.setId(1); // Definir uma ID correspondente ao Setor na tabela "Setor".
 		
 
 		f.setId(null); // ID's gerados automaticamente!
-		f.setNome("William Brito");
+		f.setNome("Maria Silva");
 		f.setSetor(s); // chave estrangeira
-		f.setSalario(1000.0);
-		f.setEmail("william@tester.com");
-		f.setIdade(21);
+		f.setSalario(2000.0);
+		f.setEmail("maria@tester.com");
+		f.setIdade(22);
 
 		funServ.CriarFuncionario(f);
 	}

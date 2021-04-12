@@ -17,7 +17,7 @@ class FuncionarioDAOTest {
 		Funcionario f = new Funcionario();
 		Setor s = new Setor();
 
-		s.setId(2); // Definir uma ID correspondente ao Setor na tabela "Setor".
+		s.setId(1); // Definir uma ID correspondente ao Setor na tabela "Setor".
 		
 
 		f.setId(null); // ID's gerados automaticamente!

@@ -14,7 +14,7 @@ class SetorDAOTest {
 		Setor s = new Setor();
 		
 		s.setId(null); // Está como "null" pois as ID's são geradas automaticamente!
-	    s.setNome("TestandoDAO");
+	    s.setNome("Marketing");
 	    
 	    SetDAO.salvarSetorNoBanco(s);
 	}
