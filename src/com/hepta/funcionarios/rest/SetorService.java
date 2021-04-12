@@ -72,7 +72,7 @@ public class SetorService {
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
-	public Response LerSetor() {
+	public Response ListarSetores() {
 		List<Setor> variavelSetor = new ArrayList<>();
 		try {
 			variavelSetor = dao.getAll();

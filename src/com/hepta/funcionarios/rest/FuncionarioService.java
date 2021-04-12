@@ -73,7 +73,7 @@ public class FuncionarioService {
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
-	public Response LerFuncionario() {
+	public Response ListarFuncionarios() {
 		List<Funcionario> variavelFuncionario = new ArrayList<>();
 		try {
 			variavelFuncionario = dao.getAll();
@@ -85,6 +85,8 @@ public class FuncionarioService {
 		};
 		return Response.status(Status.OK).entity(entity).build();
 	}
+	
+	
 
 	/**
 	 * Atualiza um Funcionario
@@ -98,8 +100,9 @@ public class FuncionarioService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@PUT
 	public Response AtualizarFuncionario(@PathParam("id") Integer id, Funcionario variavelFuncionario) {
-		variavelFuncionario  = new Funcionario();
+		//variavelFuncionario  = new Funcionario();
 		try {
+			 //dao.encontrarFuncionarioNoBanco(id);
 			 dao.atualizarFuncionarioNoBanco(variavelFuncionario);
 			
 		} catch (Exception e) {
