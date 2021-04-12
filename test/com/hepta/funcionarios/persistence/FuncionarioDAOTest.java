@@ -2,6 +2,8 @@ package com.hepta.funcionarios.persistence;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import com.hepta.funcionarios.entity.Funcionario;
@@ -10,15 +12,13 @@ import com.hepta.funcionarios.entity.Setor;
 class FuncionarioDAOTest {
 
 	@Test
-	void testSalvarFuncionarioNoBanco() {
+	void testSalvarFuncionarioDAO() {
 		FuncionarioDAO funDAO = new FuncionarioDAO();
-		
 
 		Funcionario f = new Funcionario();
 		Setor s = new Setor();
 
 		s.setId(1); // Definir uma ID correspondente ao Setor na tabela "Setor".
-		
 
 		f.setId(null); // ID's gerados automaticamente!
 		f.setNome("William Brito");
@@ -28,30 +28,73 @@ class FuncionarioDAOTest {
 		f.setIdade(21);
 
 		try {
-			funDAO.salvarFuncionarioNoBanco(f);
+			funDAO.salvarFuncionarioDAO(f);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	void testListarTodosFuncionariosDAO() {
+		FuncionarioDAO funDAO = new FuncionarioDAO();
+		
+		try {
+			List <Funcionario> listaFuncionarios = funDAO.listarTodosFuncionariosDAO();
+			for (Funcionario funcionariosForEach : listaFuncionarios) {
+				System.out.println(funcionariosForEach);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+	}
+	
+	@Test
+	void testEncontrarFuncionarioDAO() {
+		FuncionarioDAO funDAO = new FuncionarioDAO();
+		
+		try {
+			Funcionario funcionarioEncontrado = funDAO.encontrarFuncionarioDAO(2); //Encontrar 1 funcionário pela ID inserida no método
+			System.out.println(funcionarioEncontrado);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+				
+	}
+
 
 	@Test
-	void testAtualizarFuncionarioNoBanco() {
-		fail("Not yet implemented");
+	void testAtualizarFuncionarioDAO() { //Testando atualização de nome
+        FuncionarioDAO funDAO = new FuncionarioDAO();
+		
+        try {
+        	Funcionario funcionarioSelecionado = funDAO.encontrarFuncionarioDAO(2); //ID do funcionário ao qual se deseja atualizar alguma informação
+			System.out.println(funcionarioSelecionado); //Antes
+			
+			funcionarioSelecionado.setNome("Lorena Gomez"); //Nome que entrará na tabela "Funcionário", no lugar de outro cujo registro possui ID = 2
+			
+			funDAO.atualizarFuncionarioDAO(funcionarioSelecionado);
+			
+			System.out.println(funcionarioSelecionado); //Depois
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+				
 	}
 
 	@Test
-	void testDeletarFuncionarioDoBanco() {
-		fail("Not yet implemented");
+	void testDeletarFuncionarioDAO() {
+		FuncionarioDAO funDAO = new FuncionarioDAO();
+		try {
+			funDAO.deletarFuncionarioDAO(4); //Remove da Tabela 'Funcionario', o registro correspondente à ID inserida na função
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
-	@Test
-	void testEncontrarFuncionarioNoBanco() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetAll() {
-		fail("Not yet implemented");
-	}
+	
 
 }

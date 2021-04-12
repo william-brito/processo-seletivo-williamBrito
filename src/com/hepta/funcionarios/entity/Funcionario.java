@@ -96,6 +96,12 @@ public class Funcionario implements Serializable {
 	public void setIdade(Integer idade) {
 		this.idade = idade;
 	}
+
+	@Override
+	public String toString() {
+		return "Funcionario [id=" + id + ", nome=" + nome + ", setor=" + setor + ", salario=" + salario + ", email="
+				+ email + ", idade=" + idade + "]";
+	}
 	
 	
 

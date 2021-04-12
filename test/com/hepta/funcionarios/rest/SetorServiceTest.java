@@ -5,33 +5,78 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import com.hepta.funcionarios.entity.Setor;
+import com.hepta.funcionarios.persistence.SetorDAO;
 
 class SetorServiceTest {
 
 	@Test
 	void testCriarSetor() {
-		SetorService SetServ = new SetorService();
+		SetorService setServ = new SetorService();
 		Setor s = new Setor();
-		
+
 		s.setId(null); // Está como "null" pois as ID's são geradas automaticamente!
-	    s.setNome("Financeiro");
-	    
-	    SetServ.CriarSetor(s);
+		s.setNome("Financeiro");
+
+		setServ.CriarSetor(s);
 	}
 
 	@Test
 	void testListarSetores() {
-		fail("Not yet implemented");
+		SetorService setServ = new SetorService();
+
+		try {
+
+			setServ.ListarSetores(); // retorna "response" (Analisar depois)
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Test
+	void testEncontrarSetor() {
+		SetorService setServ = new SetorService();
+
+		try {
+			setServ.EncontrarSetor(2); // Encontrar 1 setor pela ID inserida no método ---> retorna "response"
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	void testAtualizarSetor() {
-		fail("Not yet implemented");
+		
+		SetorService setServ = new SetorService();
+
+        try {
+        	SetorDAO setDAO = new SetorDAO();
+        	Setor setorSelecionado = setDAO.encontrarSetorDAO(2);
+        				
+            System.out.println(setorSelecionado); //Antes
+			
+            setorSelecionado.setNome("R.H"); //Nome que entrará na tabela "Setor", no lugar de outro cujo registro possui ID = 2
+			
+            setServ.AtualizarSetor(2, setorSelecionado);
+			
+			System.out.println(setorSelecionado); //Depois
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	@Test
-	void testDeletarSetor() {
-		fail("Not yet implemented");
+	void testDeletarSetor() { //Falta implementar lógica para Banco de Dados (Tabela com referência em outra tabela)
+		//SetorService funDAO = new SetorService();
+		try {
+			//funDAO.deletarSetor(8); //Remove da Tabela 'Setor', o registro correspondente à ID inserida na função
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

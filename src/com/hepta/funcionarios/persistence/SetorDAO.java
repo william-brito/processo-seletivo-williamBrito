@@ -11,7 +11,7 @@ import com.hepta.funcionarios.entity.Setor;
 public class SetorDAO {
 
 	// Salvar o Setor no Banco de Dados
-	public void salvarSetorNoBanco(Setor variavelSetorDAO) throws Exception {
+	public void salvarSetorDAO(Setor variavelSetorDAO) throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager(); // do HibernateUtil.java
 
 		try {
@@ -28,7 +28,7 @@ public class SetorDAO {
 	}
 
 	// Atualizar o Setor no Banco de Dados
-	public Setor atualizarSetorNoBanco(Setor variavelSetorDAO) throws Exception {
+	public Setor atualizarSetorDAO(Setor variavelSetorDAO) throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager();
 		Setor SetorAtualizado = null;
 		try {
@@ -45,7 +45,7 @@ public class SetorDAO {
 	}
 	
 	//Deletar o Setor do Banco de Dados
-	public void deletarSetorDoBanco(Integer id) throws Exception {
+	public void deletarSetorDAO(Integer id) throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -62,7 +62,7 @@ public class SetorDAO {
 	}
 
 	//Encontrar o Setor no Banco de Dados
-	public Setor encontrarSetorNoBanco(Integer id) throws Exception {
+	public Setor encontrarSetorDAO(Integer id) throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager();
 		Setor variavelSetorDAO = null;
 		try {
@@ -77,7 +77,7 @@ public class SetorDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Setor> getAll() throws Exception {
+	public List<Setor> listarTodosSetoresDoBanco() throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager();
 		List<Setor> variavelSetorDAO = new ArrayList<>();
 		try {

@@ -45,4 +45,11 @@ public class Setor implements Serializable {
 		this.nome = nome;
 	}
 
+	@Override
+	public String toString() {
+		return "Setor [id=" + id + ", nome=" + nome + "]";
+	}
+	
+	
+
 }

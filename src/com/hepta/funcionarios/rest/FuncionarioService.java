@@ -54,10 +54,10 @@ public class FuncionarioService {
 	public Response CriarFuncionario(Funcionario variavelFuncionario) {
 		//variavelFuncionario  = new Funcionario();
 		try {
-			 dao.salvarFuncionarioNoBanco(variavelFuncionario);
+			 dao.salvarFuncionarioDAO(variavelFuncionario);
 			
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao inserir o funcionário!").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar inserir o funcionário!").build();
 		}
 		
 		return Response.status(Status.OK).build();
@@ -76,9 +76,9 @@ public class FuncionarioService {
 	public Response ListarFuncionarios() {
 		List<Funcionario> variavelFuncionario = new ArrayList<>();
 		try {
-			variavelFuncionario = dao.getAll();
+			variavelFuncionario = dao.listarTodosFuncionariosDAO();
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar Funcionarios").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar os Funcionarios!").build();
 		}
 
 		GenericEntity<List<Funcionario>> entity = new GenericEntity<List<Funcionario>>(variavelFuncionario) {
@@ -98,9 +98,11 @@ public class FuncionarioService {
 	public Response EncontrarFuncionario(@PathParam("id") Integer id) {
 		 
 		try {
-			 dao.encontrarFuncionarioNoBanco(id);
+			 dao.encontrarFuncionarioDAO(id);
+			 //Funcionario fun = dao.encontrarFuncionarioNoBanco(2);
+	            //System.out.println("func = " + fun);
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao encontrar o Funcionário").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar encontrar o Funcionário!").build();
 		}
 
 			
@@ -124,10 +126,11 @@ public class FuncionarioService {
 		//variavelFuncionario  = new Funcionario();
 		try {
 			 //dao.encontrarFuncionarioNoBanco(id);
-			 dao.atualizarFuncionarioNoBanco(variavelFuncionario);
+			 //dao.encontrarFuncionarioDAO(id).setNome("teste");
+			 dao.atualizarFuncionarioDAO(variavelFuncionario);
 			
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao atualizar o funcionário!").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar atualizar o funcionário!").build();
 		}
 		
 		return Response.status(Status.OK).build();
@@ -145,10 +148,10 @@ public class FuncionarioService {
 	@DELETE
 	public Response DeletarFuncionario(@PathParam("id") Integer id) {
 		try {
-			 dao.deletarFuncionarioDoBanco(id);
+			 dao.deletarFuncionarioDAO(id);
 			
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao remover o funcionário!").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar remover o funcionário!").build();
 		}
 		
 		return Response.status(Status.OK).build();

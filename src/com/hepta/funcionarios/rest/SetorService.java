@@ -53,10 +53,10 @@ public class SetorService {
 	@POST
 	public Response CriarSetor(Setor variavelSetor) {
 		try {
-			 dao.salvarSetorNoBanco(variavelSetor);
+			 dao.salvarSetorDAO(variavelSetor);
 			
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao inserir o setor!").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar inserir o setor!").build();
 		}
 		
 		return Response.status(Status.OK).build();
@@ -75,15 +75,37 @@ public class SetorService {
 	public Response ListarSetores() {
 		List<Setor> variavelSetor = new ArrayList<>();
 		try {
-			variavelSetor = dao.getAll();
+			variavelSetor = dao.listarTodosSetoresDoBanco();
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar o Setor").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar os Setores!").build();
 		}
 
 		GenericEntity<List<Setor>> entity = new GenericEntity<List<Setor>>(variavelSetor) {
 		};
 		return Response.status(Status.OK).entity(entity).build();
 	}
+	
+	/**
+	 * Encontrar 1 Setor
+	 * 
+	 * @return response 200 (OK) - Conseguiu listar
+	 */
+	@Path("/")
+	@Produces(MediaType.APPLICATION_JSON)
+	@GET
+	public Response EncontrarSetor(@PathParam("id") Integer id) {
+		 
+		try {
+			 dao.encontrarSetorDAO(id);
+			
+		} catch (Exception e) {
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar encontrar o Setor!").build();
+		}
+
+			
+		return Response.status(Status.OK).build();
+	}
+	
 
 	/**
 	 * Atualiza um Setor
@@ -99,10 +121,10 @@ public class SetorService {
 	public Response AtualizarSetor(@PathParam("id") Integer id, Setor variavelSetor) {
 		variavelSetor  = new Setor();
 		try {
-			 dao.atualizarSetorNoBanco(variavelSetor);
+			 dao.atualizarSetorDAO(variavelSetor);
 			
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao atualizar o Setor!").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar atualizar o Setor!").build();
 		}
 		
 		return Response.status(Status.OK).build();
@@ -120,10 +142,10 @@ public class SetorService {
 	@DELETE
 	public Response deletarSetor(@PathParam("id") Integer id) {
 		try {
-			 dao.deletarSetorDoBanco(id);
+			 dao.deletarSetorDAO(id);
 			
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao remover o Setor!").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar remover o Setor!").build();
 		}
 		
 		return Response.status(Status.OK).build();

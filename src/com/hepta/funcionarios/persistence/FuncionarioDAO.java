@@ -12,7 +12,7 @@ public class FuncionarioDAO {
 	
 	
 	//Salvar funcionário no Banco de Dados
-	public void salvarFuncionarioNoBanco(Funcionario variavelFuncionarioDAO) throws Exception {
+	public void salvarFuncionarioDAO(Funcionario variavelFuncionarioDAO) throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager(); //do HibernateUtil.java
 				
 		try {
@@ -29,7 +29,7 @@ public class FuncionarioDAO {
 	}
 	
 	//Atualizar funcionário no Banco de Dados
-	public Funcionario atualizarFuncionarioNoBanco(Funcionario variavelFuncionarioDAO) throws Exception {
+	public Funcionario atualizarFuncionarioDAO(Funcionario variavelFuncionarioDAO) throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager();
 		Funcionario FuncionarioAtualizado = null;
 		try {
@@ -46,7 +46,7 @@ public class FuncionarioDAO {
 	}
 
 	//Deletar funcionário do Banco de Dados
-	public void deletarFuncionarioDoBanco(Integer id) throws Exception {
+	public void deletarFuncionarioDAO(Integer id) throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -62,8 +62,8 @@ public class FuncionarioDAO {
 
 	}
 
-	//Encontrar funcionário no Banco de Dados
-	public Funcionario encontrarFuncionarioNoBanco(Integer id) throws Exception {
+	//Encontrar 1 funcionário no Banco de Dados
+	public Funcionario encontrarFuncionarioDAO(Integer id) throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager();
 		Funcionario variavelFuncionarioDAO = null;
 		try {
@@ -77,8 +77,10 @@ public class FuncionarioDAO {
 		return variavelFuncionarioDAO;
 	}
 
+	
+	//Listar todos os funcionário do Banco de Dados
 	@SuppressWarnings("unchecked")
-	public List<Funcionario> getAll() throws Exception {
+	public List<Funcionario> listarTodosFuncionariosDAO() throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager();
 		List<Funcionario> variavelFuncionarioDAO = new ArrayList<>();
 		try {

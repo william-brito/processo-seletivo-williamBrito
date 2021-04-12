@@ -1,5 +1,9 @@
 package com.hepta.funcionarios.persistence;
 
+import java.util.List;
+
+import javax.ws.rs.core.Response;
+
 //import javax.persistence.EntityManager;
 //import javax.persistence.EntityManagerFactory;
 //import javax.persistence.Persistence;
@@ -45,7 +49,54 @@ public class FuncionarioHibernateTest {
 		
 		
 		
-		FuncionarioService funServ = new FuncionarioService();
+		
+		//deletar
+        
+		FuncionarioDAO funDAO = new FuncionarioDAO();
+		
+		//SetorService SetServ = new SetorService();
+		
+		//Funcionario f = new Funcionario();
+		
+		//Setor s = new Setor();
+	 	//List <Funcionario> fun = funDAO.listarTodosFuncionariosDoBanco();
+		
+		//Funcionario fun = funDAO.encontrarFuncionarioDAO(14);
+		
+		//System.out.println(fun);
+		
+				
+		funDAO.deletarFuncionarioDAO(16);
+		
+		//System.out.println(fun);
+		
+		//for(Funcionario funEach: fun) {
+		//	System.out.println(funEach);
+
+		//}
+		
+				
+		//s.setId(4); //ID's gerados automaticamente!
+	    //s.setNome("Marketing");
+		
+		//f.setId(null); //ID's gerados automaticamente!
+		
+		//f.setSetor(s); //chave estrangeira
+		//f.setSalario(1000.0);
+		//f.setEmail("felizardo@gmail.com");
+		//f.setIdade(20);
+		//Funcionario fun = daoo.encontrarFuncionarioNoBanco(2);
+		
+		//System.out.println(fun);
+				
+		//f.setNome("Jorge Alves");
+				
+		//funServ.AtualizarFuncionario(2, f);
+		
+		
+		
+		//atualizar
+		/*FuncionarioService funServ = new FuncionarioService();
 		
 		SetorService SetServ = new SetorService();
 		
@@ -78,7 +129,7 @@ public class FuncionarioHibernateTest {
 		//funServ.CriarFuncionario(f);
 		
 		
-		
+		*/
 		
 		
 		
