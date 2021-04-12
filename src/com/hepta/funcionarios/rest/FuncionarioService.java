@@ -87,6 +87,27 @@ public class FuncionarioService {
 	}
 	
 	
+	/**
+	 * Encontrar 1 Funcionario
+	 * 
+	 * @return response 200 (OK) - Conseguiu listar
+	 */
+	@Path("/")
+	@Produces(MediaType.APPLICATION_JSON)
+	@GET
+	public Response EncontrarFuncionario(@PathParam("id") Integer id) {
+		 
+		try {
+			 dao.encontrarFuncionarioNoBanco(id);
+		} catch (Exception e) {
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao encontrar o Funcionário").build();
+		}
+
+			
+		return Response.status(Status.OK).build();
+	}
+	
+	
 
 	/**
 	 * Atualiza um Funcionario

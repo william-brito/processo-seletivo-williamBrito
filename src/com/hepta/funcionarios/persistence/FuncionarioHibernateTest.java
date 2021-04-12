@@ -5,9 +5,9 @@ package com.hepta.funcionarios.persistence;
 //import javax.persistence.Persistence;
 
 import com.hepta.funcionarios.entity.Funcionario;
-//import com.hepta.funcionarios.entity.Setor;
+import com.hepta.funcionarios.entity.Setor;
 import com.hepta.funcionarios.rest.FuncionarioService;
-//import com.hepta.funcionarios.rest.SetorService;
+import com.hepta.funcionarios.rest.SetorService;
 
 public class FuncionarioHibernateTest {
 	public static void main(String[] args) throws Exception {
@@ -39,29 +39,38 @@ public class FuncionarioHibernateTest {
 		//fdao.salvarFuncionarioNoBanco(f);
 		*/
 		
+		
 		//Teste de atualização no Banco de Dados -
 		
+		
+		
+		
 		FuncionarioService funServ = new FuncionarioService();
-		//SetorService SetServ = new SetorService();
+		
+		SetorService SetServ = new SetorService();
+		
 		Funcionario f = new Funcionario();
-		//Setor s = new Setor();
+		
+		Setor s = new Setor();
 	 
 		
 				
-		//s.setId(null); //ID's gerados automaticamente!
-	    //s.setNome("TI");
+		s.setId(4); //ID's gerados automaticamente!
+	    s.setNome("Marketing");
 		
-		//f.setId(null); //ID's gerados automaticamente!
+		f.setId(null); //ID's gerados automaticamente!
 		
-		//f.setSetor(s); //chave estrangeira
-		//f.setSalario(1000.0);
-		//f.setEmail("felizardo@gmail.com");
-		//f.setIdade(20);
-		//funServ.EncontrarFuncionario(2);
+		f.setSetor(s); //chave estrangeira
+		f.setSalario(1000.0);
+		f.setEmail("felizardo@gmail.com");
+		f.setIdade(20);
+		funServ.EncontrarFuncionario(2);
 				
 		f.setNome("Jorge Alves");
 				
 		funServ.AtualizarFuncionario(2, f);
+		
+		
 		
 		
 		//SetServ.CriarSetor(s); //Inserir o setor primeiro, devido à chave estrangeira na tabela Funcionário
