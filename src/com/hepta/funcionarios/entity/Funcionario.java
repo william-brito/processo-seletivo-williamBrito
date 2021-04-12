@@ -20,7 +20,7 @@ public class Funcionario implements Serializable {
 	@Column(name = "ID_FUNCIONARIO") //nome da coluna na tabela do Banco de Dados
 	private Integer id;
 
-	@Column(name = "NOME") //nome da coluna na tabela do Banco de Dados
+	@Column(name = "NOME_FUNCIONARIO", length = 100) //nome da coluna na tabela + tamanho do Varchar no Banco de Dados
 	private String nome;
 
 	@ManyToOne
@@ -30,7 +30,7 @@ public class Funcionario implements Serializable {
 	@Column(name = "NU_SALARIO") //nome da coluna na tabela do Banco de Dados
 	private Double salario;
 
-	@Column(name = "DS_EMAIL") //nome da coluna na tabela do Banco de Dados
+	@Column(name = "DS_EMAIL", length = 30) //nome da coluna na tabela + tamanho do Varchar no Banco de Dados
 	private String email;
 
 	@Column(name = "NU_IDADE") //nome da coluna na tabela do Banco de Dados

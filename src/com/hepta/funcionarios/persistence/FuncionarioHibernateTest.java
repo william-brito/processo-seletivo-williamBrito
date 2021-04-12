@@ -1,14 +1,72 @@
 package com.hepta.funcionarios.persistence;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+//import javax.persistence.EntityManager;
+//import javax.persistence.EntityManagerFactory;
+//import javax.persistence.Persistence;
 
 import com.hepta.funcionarios.entity.Funcionario;
 import com.hepta.funcionarios.entity.Setor;
+import com.hepta.funcionarios.rest.FuncionarioService;
+import com.hepta.funcionarios.rest.SetorService;
 
 public class FuncionarioHibernateTest {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		
+		//FuncionarioDAO fdao = new FuncionarioDAO();
+		
+		FuncionarioService funServ = new FuncionarioService();
+		SetorService SetServ = new SetorService();
+		Funcionario f = new Funcionario();
+		Setor s = new Setor();
+	
+		s.setId(null); //ID's gerados automaticamente!
+		s.setNome("TI");
+		
+		f.setId(null); //ID's gerados automaticamente!
+		f.setNome("Felizardo Alves");
+		f.setSetor(s); //chave estrangeira
+		f.setSalario(1000.0);
+		f.setEmail("felizardo@gmail.com");
+		f.setIdade(20);
+		
+		//fdao.save(s);	
+		SetServ.CriarSetor(s);
+		
+		funServ.CriarFuncionario(f);
+		//fdao.salvarFuncionarioNoBanco(f);
+		
+	/*	
+	
+	public void save(Funcionario func) throws Exception {
+		EntityManager em = HibernateUtil.getEntityManager(); //do HibernateUtil.java
+		
+		Funcionario f = new Funcionario();
+		Setor s = new Setor();
+
+		s.setId(null);
+		s.setNome("TI");
+
+		f.setId(null);
+		f.setNome("Felizardo Alves");
+		f.setSetor(s); //chave estrangeira
+		f.setSalario(1000.0);
+		f.setEmail("felizardo@gmail.com");
+		f.setIdade(20);
+				
+		try {
+			em.getTransaction().begin(); //iniciar transação com o Banco de Dados
+			em.persist(f);
+			em.getTransaction().commit(); //confirmar
+		} catch (Exception e) {
+			em.getTransaction().rollback(); //desfazer em caso de inconsistência
+			throw new Exception(e);
+		} finally {
+			em.close();
+		}
+			
+	*/
+	}
+	}
 
 		// List<Setor> listaSetor = new ArrayList<>();
 		// Setor s1 = new Setor(null, "TI");
@@ -29,19 +87,19 @@ public class FuncionarioHibernateTest {
 		// 31);
 
 		// int id = f1.getSetor().getId();
+		
+		//Funcionario f = new Funcionario();
+		//Setor s = new Setor();
 
-		Funcionario f = new Funcionario();
-		Setor s = new Setor();
+		//s.setId(null);
+		//s.setNome("TI");
 
-		s.setId(null);
-		s.setNome("TI");
-
-		f.setId(null);
-		f.setNome("Felizardo Alves");
-		f.setSetor(s); //chave estrangeira
-		f.setSalario(1000.0);
-		f.setEmail("felizardo@gmail.com");
-		f.setIdade(20);
+		//f.setId(null);
+		//f.setNome("Felizardo Alves");
+		//f.setSetor(s); //chave estrangeira
+		//f.setSalario(1000.0);
+		//f.setEmail("felizardo@gmail.com");
+		//f.setIdade(20);
 
 		// System.out.println("ID: "+f1.getId()+" || Nome: "+f1.getNome()+" || Setor:
 		// "+f1.getSetor()+" || Salário: "+f1.getSalario()+" || Email: "+f1.getEmail()+"
@@ -53,19 +111,19 @@ public class FuncionarioHibernateTest {
 		// "+f3.getSetor()+" || Salário: "+f3.getSalario()+" || Email: "+f3.getEmail()+"
 		// || Idade: "+f1.getIdade());
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("funcionarios-bd");
-		EntityManager em = emf.createEntityManager();
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("funcionarios-bd");
+		//EntityManager em = emf.createEntityManager();
 
-		em.getTransaction().begin();
+		//em.getTransaction().begin();
 
-		em.persist(s); //Primeiro o Setor, depois o Funcionário
-		em.persist(f);
+		//em.persist(s); //Primeiro o Setor, depois o Funcionário
+		//em.persist(f);
 		// em.persist(f);
 		// em.persist(f);
 
-		em.getTransaction().commit();
+		//em.getTransaction().commit();
 
-		System.out.println("Pronto!!");
+		//System.out.println("Pronto!!");
 
 		// System.out.println("ID: "+f1.getId()+" || Nome: "+f1.getNome()+" || Salário:
 		// "+f1.getSalario()+" || Email: "+f1.getEmail()+" || Idade: "+f1.getIdade());
@@ -74,7 +132,7 @@ public class FuncionarioHibernateTest {
 		// System.out.println("ID: "+f3.getId()+" || Nome: "+f3.getNome()+" || Salário:
 		// "+f3.getSalario()+" || Email: "+f3.getEmail()+" || Idade: "+f1.getIdade());
 
-	}
+	
 
-}
+
 

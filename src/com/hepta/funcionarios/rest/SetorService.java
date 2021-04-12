@@ -19,11 +19,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import com.hepta.funcionarios.entity.Funcionario;
-import com.hepta.funcionarios.persistence.FuncionarioDAO;
+import com.hepta.funcionarios.entity.Setor;
+import com.hepta.funcionarios.persistence.SetorDAO;
 
-@Path("/funcionarios")
-public class FuncionarioService {
+public class SetorService {
+
 
 	@Context
 	private HttpServletRequest request;
@@ -31,10 +31,10 @@ public class FuncionarioService {
 	@Context
 	private HttpServletResponse response;
 
-	private FuncionarioDAO dao;
+	private SetorDAO dao;
 
-	public FuncionarioService() {
-		dao = new FuncionarioDAO();
+	public SetorService() {
+		dao = new SetorDAO();
 	}
 
 	protected void setRequest(HttpServletRequest request) {
@@ -42,22 +42,21 @@ public class FuncionarioService {
 	}
 
 	/**
-	 * Adiciona novo Funcionario
+	 * Adiciona novo Setor
 	 * 
-	 * @param Funcionario: Novo Funcionario
+	 * @param Funcionario: Novo Setor
 	 * @return response 200 (OK) - Conseguiu adicionar
 	 */
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON) //post => consumir/receber JSON
 	@Produces(MediaType.APPLICATION_JSON)
 	@POST
-	public Response CriarFuncionario(Funcionario variavelFuncionario) {
-		//variavelFuncionario  = new Funcionario();
+	public Response CriarSetor(Setor variavelSetor) {
 		try {
-			 dao.salvarFuncionarioNoBanco(variavelFuncionario);
+			 dao.salvarSetorNoBanco(variavelSetor);
 			
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao inserir o funcionário!").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao inserir o setor!").build();
 		}
 		
 		return Response.status(Status.OK).build();
@@ -66,44 +65,44 @@ public class FuncionarioService {
 	
 
 	/**
-	 * Lista todos os Funcionarios
+	 * Lista todos os Setores
 	 * 
 	 * @return response 200 (OK) - Conseguiu listar
 	 */
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
-	public Response LerFuncionario() {
-		List<Funcionario> variavelFuncionario = new ArrayList<>();
+	public Response LerSetor() {
+		List<Setor> variavelSetor = new ArrayList<>();
 		try {
-			variavelFuncionario = dao.getAll();
+			variavelSetor = dao.getAll();
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar Funcionarios").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar o Setor").build();
 		}
 
-		GenericEntity<List<Funcionario>> entity = new GenericEntity<List<Funcionario>>(variavelFuncionario) {
+		GenericEntity<List<Setor>> entity = new GenericEntity<List<Setor>>(variavelSetor) {
 		};
 		return Response.status(Status.OK).entity(entity).build();
 	}
 
 	/**
-	 * Atualiza um Funcionario
+	 * Atualiza um Setor
 	 * 
-	 * @param id:          id do Funcionario
-	 * @param Funcionario: Funcionario atualizado
+	 * @param id:          id do Setor
+	 * @param Funcionario: Setor atualizado
 	 * @return response 200 (OK) - Conseguiu atualizar
 	 */
 	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON) //put => consumir/receber JSON
 	@Produces(MediaType.APPLICATION_JSON)
 	@PUT
-	public Response AtualizarFuncionario(@PathParam("id") Integer id, Funcionario variavelFuncionario) {
-		variavelFuncionario  = new Funcionario();
+	public Response AtualizarSetor(@PathParam("id") Integer id, Setor variavelSetor) {
+		variavelSetor  = new Setor();
 		try {
-			 dao.atualizarFuncionarioNoBanco(variavelFuncionario);
+			 dao.atualizarSetorNoBanco(variavelSetor);
 			
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao atualizar o funcionário!").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao atualizar o Setor!").build();
 		}
 		
 		return Response.status(Status.OK).build();
@@ -111,20 +110,20 @@ public class FuncionarioService {
 	
 
 	/**
-	 * Remove um Funcionario
+	 * Remove um Setor
 	 * 
-	 * @param id: id do Funcionario
+	 * @param id: id do Setor
 	 * @return response 200 (OK) - Conseguiu remover
 	 */
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@DELETE
-	public Response DeletarFuncionario(@PathParam("id") Integer id) {
+	public Response deletarSetor(@PathParam("id") Integer id) {
 		try {
-			 dao.deletarFuncionarioDoBanco(id);
+			 dao.deletarSetorDoBanco(id);
 			
 		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao remover o funcionário!").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao remover o Setor!").build();
 		}
 		
 		return Response.status(Status.OK).build();

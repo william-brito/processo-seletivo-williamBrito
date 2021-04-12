@@ -18,7 +18,7 @@ public class Setor implements Serializable {
 	@Column(name = "ID_SETOR")
 	private Integer id;
 
-	@Column(name = "NOME")
+	@Column(name = "NOME_SETOR", length = 30) //nome da coluna na tabela + tamanho do Varchar, no Banco de Dados
 	private String nome;
 	
 	public Setor() {
