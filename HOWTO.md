@@ -1,3 +1,7 @@
+Observação Inicial: O padrão do projeto no Git foi alterado de 'Master' para 'Main' para se adequar à atualização do GitHub
+
+.:Descrições do Projeto:.
+
 1 - Criar um banco de dados com o nome de "funcionarios_prova": 
 - CREATE DATABASE funcionarios_prova;
 
