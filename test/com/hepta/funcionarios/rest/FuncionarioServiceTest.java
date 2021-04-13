@@ -5,13 +5,16 @@ import static org.junit.jupiter.api.Assertions.fail;
 //import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import com.hepta.funcionarios.entity.Funcionario;
 import com.hepta.funcionarios.entity.Setor;
 import com.hepta.funcionarios.persistence.FuncionarioDAO;
 
-
+@TestMethodOrder(OrderAnnotation.class)
 class FuncionarioServiceTest {
 
 	@BeforeAll
@@ -19,7 +22,8 @@ class FuncionarioServiceTest {
 	}
 
 	@Test
-	void CriarFuncionarioESetor() { // Testando a criação do Funcionário junto ao Setor!
+	@Order(1)
+	void testCriarFuncionarioESetor() { // Testando a criação do Funcionário junto ao Setor!
 		FuncionarioService funServ = new FuncionarioService();
 		SetorService SetServ = new SetorService();
 
@@ -30,18 +34,19 @@ class FuncionarioServiceTest {
 		s.setNome("TI");
 
 		f.setId(null); // ID's gerados automaticamente!
-		f.setNome("Felizardo Alves");
+		f.setNome("William Brito");
 		f.setSetor(s); // chave estrangeira
 		f.setSalario(1000.0);
-		f.setEmail("felizardo@tester.com");
-		f.setIdade(20);
+		f.setEmail("william@tester.com");
+		f.setIdade(29);
 
 		SetServ.CriarSetor(s); // Inserir o Setor primeiro, devido à chave estrangeira na tabela Funcionário
 		funServ.CriarFuncionario(f);
 	}
 
 	@Test
-	void CriarFuncionario() {
+	@Order(2)
+	void testCriarFuncionario() {
 		FuncionarioService funServ = new FuncionarioService();
 
 		Funcionario f = new Funcionario();
@@ -60,6 +65,7 @@ class FuncionarioServiceTest {
 	}
 
 	@Test
+	@Order(3)
 	void testListarFuncionarios() { // Analisar Depois*
 
 		FuncionarioService funServ = new FuncionarioService();
@@ -73,8 +79,9 @@ class FuncionarioServiceTest {
 		}
 
 	}
-
+	
 	@Test
+	@Order(4)
 	void testEncontrarFuncionario() {
 
 		FuncionarioService funServ = new FuncionarioService();
@@ -89,7 +96,8 @@ class FuncionarioServiceTest {
 	}
 
 	@Test
-	void testFuncionarioUpdate() {
+	@Order(5)
+	void testAtualizarFuncionario() {
 		
 		FuncionarioService funServ = new FuncionarioService();
 
@@ -113,10 +121,11 @@ class FuncionarioServiceTest {
 	}
 
 	@Test
-	void testFuncionarioDelete() {
+	@Order(6)
+	void testDeletarFuncionario() {
 		FuncionarioService funServ = new FuncionarioService();
 		try {
-			funServ.DeletarFuncionario(3); //Remove da Tabela 'Funcionario', o registro correspondente à ID inserida na função
+			funServ.DeletarFuncionario(1); //Remove da Tabela 'Funcionario', o registro correspondente à ID inserida na função
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

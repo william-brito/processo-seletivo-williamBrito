@@ -2,14 +2,19 @@ package com.hepta.funcionarios.rest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import com.hepta.funcionarios.entity.Setor;
 import com.hepta.funcionarios.persistence.SetorDAO;
 
+@TestMethodOrder(OrderAnnotation.class)
 class SetorServiceTest {
 
 	@Test
+	@Order(1)
 	void testCriarSetor() {
 		SetorService setServ = new SetorService();
 		Setor s = new Setor();
@@ -21,6 +26,7 @@ class SetorServiceTest {
 	}
 
 	@Test
+	@Order(2)
 	void testListarSetores() {
 		SetorService setServ = new SetorService();
 
@@ -35,6 +41,7 @@ class SetorServiceTest {
 	}
 
 	@Test
+	@Order(3)
 	void testEncontrarSetor() {
 		SetorService setServ = new SetorService();
 
@@ -47,6 +54,7 @@ class SetorServiceTest {
 	}
 
 	@Test
+	@Order(4)
 	void testAtualizarSetor() {
 		
 		SetorService setServ = new SetorService();
@@ -70,6 +78,7 @@ class SetorServiceTest {
 	}
 
 	@Test
+	@Order(5)
 	void testDeletarSetor() { //Falta implementar lógica para Banco de Dados (Tabela com referência em outra tabela)
 		//SetorService funDAO = new SetorService();
 		try {
