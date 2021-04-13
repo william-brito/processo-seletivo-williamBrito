@@ -4,14 +4,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import com.hepta.funcionarios.entity.Funcionario;
 import com.hepta.funcionarios.entity.Setor;
 
+@TestMethodOrder(OrderAnnotation.class)
 class FuncionarioDAOTest {
 
 	@Test
+	@Order(1)
 	void testSalvarFuncionarioDAO() {
 		FuncionarioDAO funDAO = new FuncionarioDAO();
 
@@ -21,11 +26,11 @@ class FuncionarioDAOTest {
 		s.setId(1); // Definir uma ID correspondente ao Setor na tabela "Setor".
 
 		f.setId(null); // ID's gerados automaticamente!
-		f.setNome("William Brito");
+		f.setNome("João Cardozo");
 		f.setSetor(s); // chave estrangeira
-		f.setSalario(1000.0);
-		f.setEmail("william@tester.com");
-		f.setIdade(21);
+		f.setSalario(3500.0);
+		f.setEmail("joao@tester.com");
+		f.setIdade(32);
 
 		try {
 			funDAO.salvarFuncionarioDAO(f);
@@ -35,6 +40,7 @@ class FuncionarioDAOTest {
 	}
 	
 	@Test
+	@Order(2)
 	void testListarTodosFuncionariosDAO() {
 		FuncionarioDAO funDAO = new FuncionarioDAO();
 		
@@ -52,6 +58,7 @@ class FuncionarioDAOTest {
 	}
 	
 	@Test
+	@Order(3)
 	void testEncontrarFuncionarioDAO() {
 		FuncionarioDAO funDAO = new FuncionarioDAO();
 		
@@ -66,14 +73,15 @@ class FuncionarioDAOTest {
 
 
 	@Test
+	@Order(4)
 	void testAtualizarFuncionarioDAO() { //Testando atualização de nome
         FuncionarioDAO funDAO = new FuncionarioDAO();
 		
         try {
-        	Funcionario funcionarioSelecionado = funDAO.encontrarFuncionarioDAO(2); //ID do funcionário ao qual se deseja atualizar alguma informação
+        	Funcionario funcionarioSelecionado = funDAO.encontrarFuncionarioDAO(3); //ID do funcionário ao qual se deseja atualizar alguma informação
 			System.out.println(funcionarioSelecionado); //Antes
 			
-			funcionarioSelecionado.setNome("Lorena Gomez"); //Nome que entrará na tabela "Funcionário", no lugar de outro cujo registro possui ID = 2
+			funcionarioSelecionado.setNome("Francisca Gomez"); //Nome que entrará na tabela "Funcionário", no lugar de outro cujo registro possui ID = 2 ("João Cardozo" mudará para "Francisca Gomez")
 			
 			funDAO.atualizarFuncionarioDAO(funcionarioSelecionado);
 			
@@ -85,10 +93,11 @@ class FuncionarioDAOTest {
 	}
 
 	@Test
+	@Order(5)
 	void testDeletarFuncionarioDAO() {
 		FuncionarioDAO funDAO = new FuncionarioDAO();
 		try {
-			funDAO.deletarFuncionarioDAO(4); //Remove da Tabela 'Funcionario', o registro correspondente à ID inserida na função
+			funDAO.deletarFuncionarioDAO(2); //Remove da Tabela 'Funcionario', o registro correspondente à ID inserida na função
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
