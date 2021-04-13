@@ -24,7 +24,6 @@ import com.hepta.funcionarios.persistence.SetorDAO;
 
 public class SetorService {
 
-
 	@Context
 	private HttpServletRequest request;
 
@@ -48,21 +47,19 @@ public class SetorService {
 	 * @return response 200 (OK) - Conseguiu adicionar
 	 */
 	@Path("/")
-	@Consumes(MediaType.APPLICATION_JSON) //post => consumir/receber JSON
+	@Consumes(MediaType.APPLICATION_JSON) // post => consumir/receber JSON
 	@Produces(MediaType.APPLICATION_JSON)
 	@POST
 	public Response CriarSetor(Setor variavelSetor) {
 		try {
-			 dao.salvarSetorDAO(variavelSetor);
-			
+			dao.salvarSetorDAO(variavelSetor);
+
 		} catch (Exception e) {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar inserir o setor!").build();
 		}
-		
+
 		return Response.status(Status.OK).build();
 	}
-	
-	
 
 	/**
 	 * Lista todos os Setores
@@ -75,7 +72,7 @@ public class SetorService {
 	public Response ListarSetores() {
 		List<Setor> variavelSetor = new ArrayList<>();
 		try {
-			variavelSetor = dao.listarTodosSetoresDoBanco();
+			variavelSetor = dao.listarTodosSetoresDAO();
 		} catch (Exception e) {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar os Setores!").build();
 		}
@@ -84,7 +81,7 @@ public class SetorService {
 		};
 		return Response.status(Status.OK).entity(entity).build();
 	}
-	
+
 	/**
 	 * Encontrar 1 Setor
 	 * 
@@ -94,18 +91,15 @@ public class SetorService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
 	public Response EncontrarSetor(@PathParam("id") Integer id) {
-		 
 		try {
-			 dao.encontrarSetorDAO(id);
-			
+			dao.encontrarSetorDAO(id);
+
 		} catch (Exception e) {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar encontrar o Setor!").build();
 		}
 
-			
 		return Response.status(Status.OK).build();
 	}
-	
 
 	/**
 	 * Atualiza um Setor
@@ -115,21 +109,19 @@ public class SetorService {
 	 * @return response 200 (OK) - Conseguiu atualizar
 	 */
 	@Path("/{id}")
-	@Consumes(MediaType.APPLICATION_JSON) //put => consumir/receber JSON
+	@Consumes(MediaType.APPLICATION_JSON) // put => consumir/receber JSON
 	@Produces(MediaType.APPLICATION_JSON)
 	@PUT
 	public Response AtualizarSetor(@PathParam("id") Integer id, Setor variavelSetor) {
-		variavelSetor  = new Setor();
 		try {
-			 dao.atualizarSetorDAO(variavelSetor);
-			
+			dao.atualizarSetorDAO(variavelSetor);
+
 		} catch (Exception e) {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar atualizar o Setor!").build();
 		}
-		
+
 		return Response.status(Status.OK).build();
 	}
-	
 
 	/**
 	 * Remove um Setor
@@ -142,15 +134,13 @@ public class SetorService {
 	@DELETE
 	public Response deletarSetor(@PathParam("id") Integer id) {
 		try {
-			 dao.deletarSetorDAO(id);
-			
+			dao.deletarSetorDAO(id);
+
 		} catch (Exception e) {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao tentar remover o Setor!").build();
 		}
-		
+
 		return Response.status(Status.OK).build();
 	}
-	
-	
 
 }

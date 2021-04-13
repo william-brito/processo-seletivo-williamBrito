@@ -97,7 +97,7 @@ class FuncionarioDAOTest {
 	void testDeletarFuncionarioDAO() {
 		FuncionarioDAO funDAO = new FuncionarioDAO();
 		try {
-			funDAO.deletarFuncionarioDAO(2); //Remove da Tabela 'Funcionario', o registro correspondente à ID inserida na função
+			funDAO.deletarFuncionarioDAO(2); //Remove da Tabela 'Funcionario', o registro correspondente à ID inserida na função (Nesse caso, o registro com o nome a ID = 2, será deletado)
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -77,7 +77,7 @@ public class SetorDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Setor> listarTodosSetoresDoBanco() throws Exception {
+	public List<Setor> listarTodosSetoresDAO() throws Exception {
 		EntityManager em = HibernateUtil.getEntityManager();
 		List<Setor> variavelSetorDAO = new ArrayList<>();
 		try {

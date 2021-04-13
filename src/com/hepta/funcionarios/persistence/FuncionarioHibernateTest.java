@@ -1,4 +1,4 @@
-package com.hepta.funcionarios.persistence;
+/*package com.hepta.funcionarios.persistence;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class FuncionarioHibernateTest {
 		
 		//Teste de inserção no Banco de Dados - OK
 		
-	/*	FuncionarioService funServ = new FuncionarioService();
+		FuncionarioService funServ = new FuncionarioService();
 		SetorService SetServ = new SetorService();
 		Funcionario f = new Funcionario();
 		Setor s = new Setor();
@@ -41,7 +41,7 @@ public class FuncionarioHibernateTest {
 		
 		funServ.CriarFuncionario(f);
 		//fdao.salvarFuncionarioNoBanco(f);
-		*/
+		
 		
 		
 		//Teste de atualização no Banco de Dados -
@@ -68,7 +68,7 @@ public class FuncionarioHibernateTest {
 				
 		funDAO.deletarFuncionarioDAO(16);
 		
-		//System.out.println(fun);
+		System.out.println(fun);
 		
 		//for(Funcionario funEach: fun) {
 		//	System.out.println(funEach);
@@ -96,7 +96,7 @@ public class FuncionarioHibernateTest {
 		
 		
 		//atualizar
-		/*FuncionarioService funServ = new FuncionarioService();
+		FuncionarioService funServ = new FuncionarioService();
 		
 		SetorService SetServ = new SetorService();
 		
@@ -163,7 +163,7 @@ public class FuncionarioHibernateTest {
 			em.close();
 		}
 			
-	*/
+	
 	}
 	}
 
@@ -235,3 +235,4 @@ public class FuncionarioHibernateTest {
 
 
 
+*/

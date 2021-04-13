@@ -32,7 +32,7 @@ public class HibernateUtil {
 	}
 	
 	public static void main(String[] args) {
-		HibernateUtil.getEntityManagerFactory().createEntityManager(); // conexão
+		HibernateUtil.getEntityManagerFactory().createEntityManager(); 
 		HibernateUtil.shutdown();
 	}
 }

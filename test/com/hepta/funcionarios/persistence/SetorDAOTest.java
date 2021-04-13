@@ -28,18 +28,17 @@ class SetorDAOTest {
 
 	@Test
 	@Order(2)
-	void testListarTodosSetoresDoBanco() {
+	void testListarTodosSetoresDAO() {
 
 		SetorDAO setDAO = new SetorDAO();
 
 		try {
-			List<Setor> listaSetores = setDAO.listarTodosSetoresDoBanco();
+			List<Setor> listaSetores = setDAO.listarTodosSetoresDAO();
 			for (Setor setoresForEach : listaSetores) {
 				System.out.println(setoresForEach);
 
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

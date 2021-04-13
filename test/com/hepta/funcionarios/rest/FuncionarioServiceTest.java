@@ -79,7 +79,7 @@ class FuncionarioServiceTest {
 		}
 
 	}
-	
+
 	@Test
 	@Order(4)
 	void testEncontrarFuncionario() {
@@ -88,7 +88,7 @@ class FuncionarioServiceTest {
 
 		try {
 			funServ.EncontrarFuncionario(2); // Encontrar 1 funcionário pela ID inserida no método ---> retorna
-	
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -98,26 +98,25 @@ class FuncionarioServiceTest {
 	@Test
 	@Order(5)
 	void testAtualizarFuncionario() {
-		
+
 		FuncionarioService funServ = new FuncionarioService();
 
-        try {
-            FuncionarioDAO funDAO = new FuncionarioDAO();
+		try {
+			FuncionarioDAO funDAO = new FuncionarioDAO();
+			Funcionario funcionarioSelecionado = funDAO.encontrarFuncionarioDAO(2);
 
-        	Funcionario funcionarioSelecionado = funDAO.encontrarFuncionarioDAO(2);
-        				
-            System.out.println(funcionarioSelecionado); //Antes
-			
-			funcionarioSelecionado.setNome("Joana Pires"); //Nome que entrará na tabela "Funcionário", no lugar de outro cujo registro possui ID = 2
-			
+			System.out.println(funcionarioSelecionado); // Antes
+
+			funcionarioSelecionado.setNome("Joana Pires"); // Nome que entrará na tabela "Funcionário", no lugar de outro cujo registro possui ID = 2 (de "Maria Silva" vai para "Joana Pires")
+
 			funServ.AtualizarFuncionario(2, funcionarioSelecionado);
-			
-			System.out.println(funcionarioSelecionado); //Depois
-			
+
+			System.out.println(funcionarioSelecionado); // Depois
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Test
@@ -125,7 +124,7 @@ class FuncionarioServiceTest {
 	void testDeletarFuncionario() {
 		FuncionarioService funServ = new FuncionarioService();
 		try {
-			funServ.DeletarFuncionario(1); //Remove da Tabela 'Funcionario', o registro correspondente à ID inserida na função
+			funServ.DeletarFuncionario(1); // Remove da Tabela 'Funcionario', o registro correspondente à ID inserida na função (Nesse caso, o registro com o nome a ID = 1, será deletado)
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

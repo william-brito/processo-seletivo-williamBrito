@@ -36,7 +36,7 @@ Hibernate:
 
 (os testes deverão ser rodados no modo "JUnit")
 
-4 - A fim de se observar com mais assertividade as adições, alterações e remoções, testar, de preferência, na seguinte ordem: 
+4 - A fim de se observar com mais assertividade as adições, alterações e remoções, deve-se testar, de preferência, na seguinte ordem: 
 
 1 - FuncionarioServiceTest (Que criará um Setor junto ao funcionário, para testes)
 2 - FuncionariosDAOTest

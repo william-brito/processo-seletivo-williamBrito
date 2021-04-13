@@ -65,7 +65,7 @@ class SetorServiceTest {
         				
             System.out.println(setorSelecionado); //Antes
 			
-            setorSelecionado.setNome("R.H"); //Nome que entrará na tabela "Setor", no lugar de outro cujo registro possui ID = 2
+            setorSelecionado.setNome("R.H"); //Nome que entrará na tabela "Setor", no lugar de outro cujo registro possui ID = 2 (de "Marketing" vai para "R.H")
 			
             setServ.AtualizarSetor(2, setorSelecionado);
 			
