@@ -1,22 +1,23 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'Criar Novo Funcionário',
+    component: () => import('../components/pages/criar-funcionario/CriarFuncionarioComponent'),
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    path: '/listar-funcionarios',
+    name: 'Listar todos os funcionários',
+    component: () => import('../components/pages/listar-funcionario/ListarFuncionarioComponent'),
+  },
+  {
+    path: '/editar-funcionario/:id',
+    name: 'Editar funcionário',
+    component: () => import('../components/pages/editar-funcionario/EditarFuncionarioComponent'),
   },
 ];
 
