@@ -92,7 +92,9 @@
           </div>
           <!---- FIM DO BLOCO: Idade do Funcionário ---->
           <div class="form-group">
-            <button class="btn btn-primary" type="submit">+ Adicionar Funcionario</button>
+            <button class="btn btn-primary">
+              <font-awesome-icon :icon="['fas', 'user-plus']" /> Funcionario
+            </button>
           </div>
         </form>
       </div>
