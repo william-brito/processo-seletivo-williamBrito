@@ -6,17 +6,16 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'Criar Novo Funcionário',
+    name: 'criarFuncionario',
     component: () => import('../components/pages/criar-funcionario/CriarFuncionarioComponent'),
   },
   {
     path: '/listar-funcionarios',
-    name: 'Listar todos os funcionários',
     component: () => import('../components/pages/listar-funcionario/ListarFuncionarioComponent'),
   },
   {
     path: '/editar-funcionario/:id',
-    name: 'Editar funcionário',
+    name: 'editarFuncionario',
     component: () => import('../components/pages/editar-funcionario/EditarFuncionarioComponent'),
   },
 ];

@@ -92,7 +92,7 @@
           </div>
           <!---- FIM DO BLOCO: Idade do Funcionário ---->
           <div class="form-group">
-            <button class="btn btn-primary">
+            <button @click="enviarNovoFuncionario" class="btn btn-primary">
               <font-awesome-icon :icon="['fas', 'user-plus']" /> Funcionario
             </button>
           </div>
@@ -103,16 +103,17 @@
   </template>
 <script>
 import { required } from 'vuelidate/lib/validators';
+import FuncionarioService from '../../../services/FuncionarioService';
 
 export default {
   data() {
     return {
       funcionarioForm: {
-        NOME_FUNCIONARIO: '',
-        NOME_SETOR: '',
-        NU_SALARIO: '',
-        DS_EMAIL: '',
-        NU_IDADE: '',
+        NOME_FUNCIONARIO: null,
+        NOME_SETOR: null,
+        NU_SALARIO: null,
+        DS_EMAIL: null,
+        NU_IDADE: null,
       },
       isSubmitted: false,
     };
@@ -144,6 +145,16 @@ export default {
         return;
       }
     },
+    enviarNovoFuncionario() {
+        try{
+          await FuncionarioService.criarNovoFuncionario(this.funcionarioForm);
+          this.$router.push({
+            name: 'listarFuncionarios',
+          });
+      }catch(error) {
+          console.log(error);
+      }
+    }
   },
 };
 </script>
