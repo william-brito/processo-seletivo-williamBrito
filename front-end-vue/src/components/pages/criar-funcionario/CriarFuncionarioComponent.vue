@@ -92,7 +92,7 @@
           </div>
           <!---- FIM DO BLOCO: Idade do Funcionário ---->
           <div class="form-group">
-            <button @click="enviarNovoFuncionario" class="btn btn-primary">
+            <button type="button" @click="enviarNovoFuncionario" class="btn btn-primary">
               <font-awesome-icon :icon="['fas', 'user-plus']" />Funcionario
             </button>
           </div>
@@ -147,7 +147,7 @@ export default {
     },
     async enviarNovoFuncionario() {
       try {
-        await criarNovoFuncionario.salvar;
+        await FuncionarioService.criarNovoFuncionario(this.funcionarioForm);
         this.$router.push({
           name: 'listarFuncionarios',
         });

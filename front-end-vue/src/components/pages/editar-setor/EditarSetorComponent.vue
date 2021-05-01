@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center">
-    <h1>Listagem de Funcionarios</h1>
+    <h1>Editar Setor</h1>
   </div>
 </template>
 <script>
