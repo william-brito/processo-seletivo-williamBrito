@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+  <div class="container">
     <div class="card">
       <div class="card-header">
         <h3>Criar novo funcionario</h3>
@@ -93,14 +93,14 @@
           <!---- FIM DO BLOCO: Idade do Funcionário ---->
           <div class="form-group">
             <button @click="enviarNovoFuncionario" class="btn btn-primary">
-              <font-awesome-icon :icon="['fas', 'user-plus']" /> Funcionario
+              <font-awesome-icon :icon="['fas', 'user-plus']" />Funcionario
             </button>
           </div>
         </form>
       </div>
     </div>
   </div>
-  </template>
+</template>
 <script>
 import { required } from 'vuelidate/lib/validators';
 import FuncionarioService from '../../../services/FuncionarioService';
@@ -145,16 +145,16 @@ export default {
         return;
       }
     },
-    enviarNovoFuncionario() {
-        try{
-          await FuncionarioService.criarNovoFuncionario(this.funcionarioForm);
-          this.$router.push({
-            name: 'listarFuncionarios',
-          });
-      }catch(error) {
-          console.log(error);
+    async enviarNovoFuncionario() {
+      try {
+        await criarNovoFuncionario.salvar;
+        this.$router.push({
+          name: 'listarFuncionarios',
+        });
+      } catch (error) {
+        console.log(error);
       }
-    }
+    },
   },
 };
 </script>

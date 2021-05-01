@@ -11,7 +11,9 @@ module.exports = {
     parser: 'babel-eslint',
   },
   rules: {
-    'no-useless-return': 'off',	
+    'import/prefer-default-export': 'off',  
+    'no-useless-return': 'off',
+    'no-unused-vars': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'linebreak-style': 0,
