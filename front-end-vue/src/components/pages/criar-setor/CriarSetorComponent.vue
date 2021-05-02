@@ -41,11 +41,7 @@ export default {
   data() {
     return {
       setorForm: {
-        NOME_FUNCIONARIO: null,
         NOME_SETOR: null,
-        NU_SALARIO: null,
-        DS_EMAIL: null,
-        NU_IDADE: null,
       },
       isSubmitted: false,
     };
@@ -58,18 +54,27 @@ export default {
     },
   },
   methods: {
-    handleSubmitForm() {
-      this.isSubmitted = true;
-      this.$v.$touch();
-      if (this.$v.invalid) {
-        return;
-      }
-    },
+    handleSubmitForm() {},
     async enviarNovoSetor() {
       try {
+        this.isSubmitted = true;
+        this.$v.$touch();
+        if (this.$v.$invalid) {
+          this.$swal('Atencao!', 'Voce precisa incluir todos os campos obrigatorios!', 'error');
+          return;
+        }
         await SetorService.criarNovoSetor(this.setorForm);
-        this.$router.push({
-          name: 'listarSetores',
+        this.$swal({
+          title: 'Setor adicionado com sucesso!',
+          icon: 'success',
+          showConfirmButton: true,
+          allowOutsideClick: false,
+          allowEnterKey: true,
+          allowEscapeKey: false,
+        }).then((data) => {
+          this.$router.push({
+            name: 'listarSetores',
+          });
         });
       } catch (error) {
         console.log(error);

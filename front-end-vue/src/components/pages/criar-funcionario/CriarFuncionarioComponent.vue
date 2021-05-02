@@ -92,8 +92,8 @@
           </div>
           <!---- FIM DO BLOCO: Idade do Funcionário ---->
           <div class="form-group">
-            <button type="button" @click="enviarNovoFuncionario" class="btn btn-primary">
-              <font-awesome-icon :icon="['fas', 'user-plus']" />Funcionario
+            <button @click="enviarNovoFuncionario" class="btn btn-primary">
+              <font-awesome-icon :icon="['fas', 'user-plus']" /> Employee
             </button>
           </div>
         </form>
@@ -106,6 +106,7 @@ import { required } from 'vuelidate/lib/validators';
 import FuncionarioService from '../../../services/FuncionarioService';
 
 export default {
+  name: 'CriarFuncionarioComponent',
   data() {
     return {
       funcionarioForm: {
@@ -138,18 +139,27 @@ export default {
     },
   },
   methods: {
-    handleSubmitForm() {
-      this.isSubmitted = true;
-      this.$v.$touch();
-      if (this.$v.invalid) {
-        return;
-      }
-    },
+    handleSubmitForm() {},
     async enviarNovoFuncionario() {
       try {
+        this.isSubmitted = true;
+        this.$v.$touch();
+        if (this.$v.$invalid) {
+          this.$swal('Atencao!', 'Voce precisa incluir todos os campos obrigatorios!', 'error');
+          return;
+        }
         await FuncionarioService.criarNovoFuncionario(this.funcionarioForm);
-        this.$router.push({
-          name: 'listarFuncionarios',
+        this.$swal({
+          title: 'Funcionario adicionado com sucesso!',
+          icon: 'success',
+          showConfirmButton: true,
+          allowOutsideClick: false,
+          allowEnterKey: true,
+          allowEscapeKey: false,
+        }).then((data) => {
+          this.$router.push({
+            name: 'listarFuncionarios',
+          });
         });
       } catch (error) {
         console.log(error);
