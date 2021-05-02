@@ -19,7 +19,8 @@
               :class="{'is-invalid': isSubmitted && $v.funcionarioForm.$error}"
             />
             <div
-              v-if="isSubmitted && !$v.funcionarioForm.NOME_FUNCIONARIO.required"
+              v-if="isSubmitted && !$v.funcionarioForm.NOME_FUNCIONARIO.required" class="invalid
+              -feedback"
             >O Campo "Nome do Funcionario" nao pode ficar em branco!</div>
           </div>
           <!---- FIM DO BLOCO: Nome do Funcionário ---->
@@ -36,7 +37,8 @@
               :class="{'is-invalid': isSubmitted && $v.funcionarioForm.$error}"
             />
             <div
-              v-if="isSubmitted && !$v.funcionarioForm.NOME_SETOR.required"
+              v-if="isSubmitted && !$v.funcionarioForm.NOME_SETOR.required" class="invalid
+              -feedback"
             >O Campo "Setor do Funcionario" nao pode ficar em branco!</div>
           </div>
           <!---- FIM DO BLOCO: Setor do Funcionário ---->
@@ -53,7 +55,8 @@
               :class="{'is-invalid': isSubmitted && $v.funcionarioForm.$error}"
             />
             <div
-              v-if="isSubmitted && !$v.funcionarioForm.NU_SALARIO.required"
+              v-if="isSubmitted && !$v.funcionarioForm.NU_SALARIO.required" class="invalid
+              -feedback"
             >O Campo "Salario do Funcionario" nao pode ficar em branco!</div>
           </div>
           <!---- FIM DO BLOCO: Salário do Funcionário ---->
@@ -70,7 +73,8 @@
               :class="{'is-invalid': isSubmitted && $v.funcionarioForm.$error}"
             />
             <div
-              v-if="isSubmitted && !$v.funcionarioForm.DS_EMAIL.required"
+              v-if="isSubmitted && !$v.funcionarioForm.DS_EMAIL.required " class="invalid
+              -feedback"
             >O Campo "Email do Funcionario" nao pode ficar em branco!</div>
           </div>
           <!---- FIM DO BLOCO: Email do Funcionário ---->
@@ -87,13 +91,14 @@
               :class="{'is-invalid': isSubmitted && $v.funcionarioForm.$error}"
             />
             <div
-              v-if="isSubmitted && !$v.funcionarioForm.NU_IDADE.required"
+              v-if="isSubmitted && !$v.funcionarioForm.NU_IDADE.required" class="invalid
+              -feedback"
             >O Campo "Idade do Funcionario" nao pode ficar em branco!</div>
           </div>
           <!---- FIM DO BLOCO: Idade do Funcionário ---->
           <div class="form-group">
             <button @click="enviarNovoFuncionario" class="btn btn-primary">
-              <font-awesome-icon :icon="['fas', 'user-plus']" /> Employee
+              <font-awesome-icon :icon="['fas', 'user-plus']" /> Funcionario
             </button>
           </div>
         </form>

@@ -1,6 +1,6 @@
+import Vue from 'vue';
 import VueSweetalert2 from 'vue-sweetalert2';
 import Vuelidate from 'vuelidate';
-import Vue from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserPlus, faUserEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
