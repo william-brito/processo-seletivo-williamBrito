@@ -46,3 +46,27 @@ Hibernate:
 2 - FuncionariosDAOTest
 3 - SetorDAOTest
 4 - SetorServiceTest
+
+ Front end web
+Pré-requisitos: node.js 
+
+```bash
+1-Instalar o seguinte programa:
+-node.js
+
+2-Adentrar a pasta do projeto
+cd front-end-vue
+
+3-Preparar cliente: 
+npm install -g @vue/cli 
+
+4-Executar front-end:
+npm run serve
+
+```
+# Autor
+
+William Brito de Oliveira
+
+https://github.com/william-brito
+

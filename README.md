@@ -19,8 +19,9 @@ Foi implementado apenas as classes relacionadas a entidade Funcionario.
 - Maven
 ## Front end
 - HTML / CSS / JS 
-- VUE.JS
-- NODE.JS
+- Vue.Js
+- Node.Js
+- Bootstrap
 - Axios
 - Sweetalert2
 - Vuelidation
@@ -34,7 +35,7 @@ Foi implementado apenas as classes relacionadas a entidade Funcionario.
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Java 15, Porta 3000.
+Pré-requisitos: Java 15, Porta 3000 livre.
 
 ```bash
 
@@ -44,14 +45,16 @@ git clone https://github.com/william-brito/processo-seletivo-williamBrito
 # Iniciar Banco de Dados
 
 # Criar banco de dados com o nome de "funcionarios_prova".
-CREATE DATABASE funcionarios_prova
+=> CREATE DATABASE funcionarios_prova
+=> Senha do banco no arquivo "persistence.xml" igual a "12345"
 
 # Instalar Apache Tomcat v9
 
-# Mudar localhost do Apache Tomcat para porta 3000 (No Eclipse, clicar duas vezes sobre o server, e alterar para 3000 no menu "port")
+# Mudar localhost do Apache Tomcat para porta 3000 
+=> No Eclipse, clicar duas vezes sobre o server, e alterar para 3000 no menu "port"
 
 # iniciar projeto (pasta src)
-O Hibernate se encarregará de criar as tabelas e colunas referentes às Classes: Funcionário e Setor, e as inserirá dentro da Base de Dados "funcionarios_prova"
+=> O Hibernate se encarregará de criar as tabelas e colunas referentes às Classes: Funcionário e Setor, e as inserirá dentro da Base de Dados "funcionarios_prova"
 Criar-se-á, então, no banco de dados "funcionarios_prova" a seguinte estrutura:
 
 create table Funcionario ( 
@@ -86,24 +89,28 @@ alter table Funcionario
 
 (os testes deverão ser rodados no modo "JUnit")
 -A fim de se observar com mais assertividade as adições, alterações e remoções, deve-se testar, de preferência, na seguinte ordem:
--FuncionarioServiceTest (Que criará um Setor junto ao funcionário, para testes) 2 - FuncionariosDAOTest 3 - SetorDAOTest 4 - SetorServiceTest
-```
 
+1 - FuncionarioServiceTest (Que criará um Setor junto ao funcionário, para testes) 
+2 - FuncionariosDAOTest 
+3 - SetorDAOTest 
+4 - SetorServiceTest
+
+```
 ## Front end web
 Pré-requisitos: node.js 
 
 ```bash
 # Instalar o seguinte programa:
--node.js
+=> node.js
 
 # Adentrar a pasta do projeto
-cd front-end-vue
+=> cd front-end-vue
 
 # Preparar cliente: 
-npm install -g @vue/cli 
+=> npm install -g @vue/cli 
 
 # Executar front-end:
-npm run serve
+=> npm run serve
 
 ```
 # Autor
