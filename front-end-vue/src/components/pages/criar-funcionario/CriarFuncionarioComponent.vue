@@ -11,7 +11,7 @@
             <label class="font-weight-bold">Nome</label>
             <input
               type="text"
-              id="idNome"
+              id="NOME_FUNCIONARIO"
               name="nNome"
               placeholder="Digite o Nome do Funcionario"
               class="form-control"
@@ -29,7 +29,7 @@
             <label class="font-weight-bold">Setor</label>
             <input
               type="text"
-              id="idSetor"
+              id="NOME_SETOR"
               name="nSetor"
               placeholder="Digite o Setor do Funcionario"
               class="form-control"
@@ -47,7 +47,7 @@
             <label class="font-weight-bold">Salario</label>
             <input
               type="number"
-              id="idSalario"
+              id="NU_SALARIO"
               name="nSalario"
               placeholder="Digite o Salario do Funcionario"
               class="form-control"
@@ -65,7 +65,7 @@
             <label class="font-weight-bold">Email</label>
             <input
               type="text"
-              id="idEmail"
+              id="DS_EMAIL"
               name="nEmail"
               placeholder="Digite o Email do Funcionario"
               class="form-control"
