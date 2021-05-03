@@ -3,7 +3,7 @@ import Api from './Api';
 export default {
   async criarNovoFuncionario(novoFuncionario) {
     try {
-      const response = await Api().post('/', novoFuncionario);
+      const response = await Api().post('/rs/', novoFuncionario);
       return response.data;
     } catch (error) {
       return console.log(error);
@@ -11,7 +11,7 @@ export default {
   },
   async getFuncionarios() {
     try {
-      const response = await Api().get('/');
+      const response = await Api().get('/rs/');
       return response.data;
     } catch (error) {
       return console.log(error);

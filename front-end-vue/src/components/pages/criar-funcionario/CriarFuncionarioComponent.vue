@@ -5,18 +5,18 @@
         <h3>Criar novo funcionario</h3>
       </div>
       <div class="card-body">
-        <form v-on:submit.prevent="handleSubmitForm">
+        <form v-on:submit.prevent="handleSubmitForm()">
           <!---- INÍCIO DO BLOCO: Nome do Funcionário ---->
           <div class="form-group">
             <label class="font-weight-bold">Nome</label>
             <input
               type="text"
               id="NOME_FUNCIONARIO"
-              name="nNome"
+              name="NOME_FUNCIONARIO"
               placeholder="Digite o Nome do Funcionario"
               class="form-control"
               v-model="funcionarioForm.NOME_FUNCIONARIO"
-              :class="{'is-invalid': isSubmitted && $v.funcionarioForm.$error}"
+              :class="{'is-invalid': isSubmitted && $v.funcionarioForm.NOME_FUNCIONARIO.$error}"
             />
             <div
               v-if="isSubmitted && !$v.funcionarioForm.NOME_FUNCIONARIO.required" class="invalid
@@ -30,11 +30,11 @@
             <input
               type="text"
               id="NOME_SETOR"
-              name="nSetor"
+              name="NOME_SETOR"
               placeholder="Digite o Setor do Funcionario"
               class="form-control"
               v-model="funcionarioForm.NOME_SETOR"
-              :class="{'is-invalid': isSubmitted && $v.funcionarioForm.$error}"
+              :class="{'is-invalid': isSubmitted && $v.funcionarioForm.NOME_SETOR.$error}"
             />
             <div
               v-if="isSubmitted && !$v.funcionarioForm.NOME_SETOR.required" class="invalid
@@ -48,11 +48,11 @@
             <input
               type="number"
               id="NU_SALARIO"
-              name="nSalario"
+              name="NU_SALARIO"
               placeholder="Digite o Salario do Funcionario"
               class="form-control"
               v-model="funcionarioForm.NU_SALARIO"
-              :class="{'is-invalid': isSubmitted && $v.funcionarioForm.$error}"
+              :class="{'is-invalid': isSubmitted && $v.funcionarioForm.NU_SALARIO.$error}"
             />
             <div
               v-if="isSubmitted && !$v.funcionarioForm.NU_SALARIO.required" class="invalid
@@ -66,11 +66,11 @@
             <input
               type="text"
               id="DS_EMAIL"
-              name="nEmail"
+              name="DS_EMAIL"
               placeholder="Digite o Email do Funcionario"
               class="form-control"
               v-model="funcionarioForm.DS_EMAIL"
-              :class="{'is-invalid': isSubmitted && $v.funcionarioForm.$error}"
+              :class="{'is-invalid': isSubmitted && $v.funcionarioForm.DS_EMAIL.$error}"
             />
             <div
               v-if="isSubmitted && !$v.funcionarioForm.DS_EMAIL.required " class="invalid
@@ -83,12 +83,12 @@
             <label class="font-weight-bold">Idade</label>
             <input
               type="number"
-              id="idIdade"
-              name="nIdade"
+              id="NU_IDADE"
+              name="NU_IDADE"
               placeholder="Digite a Idade do Funcionario"
               class="form-control"
               v-model="funcionarioForm.NU_IDADE"
-              :class="{'is-invalid': isSubmitted && $v.funcionarioForm.$error}"
+              :class="{'is-invalid': isSubmitted && $v.funcionarioForm.NU_IDADE.$error}"
             />
             <div
               v-if="isSubmitted && !$v.funcionarioForm.NU_IDADE.required" class="invalid

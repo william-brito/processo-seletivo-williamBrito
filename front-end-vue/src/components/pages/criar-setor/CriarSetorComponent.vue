@@ -5,18 +5,18 @@
         <h3>Criar novo setor</h3>
       </div>
       <div class="card-body">
-        <form v-on:submit.prevent="handleSubmitForm">
+        <form v-on:submit.prevent="handleSubmitForm()">
           <!---- INÍCIO DO BLOCO: Nome do Setor ---->
           <div class="form-group">
             <label class="font-weight-bold">Nome</label>
             <input
               type="text"
-              id="idNomeSetor"
-              name="idNomeSetor"
+              id="NOME_SETOR"
+              name="NOME_SETOR"
               placeholder="Digite o Nome do Setor"
               class="form-control"
               v-model="setorForm.NOME_SETOR"
-              :class="{'is-invalid': isSubmitted && $v.setorForm.$error}"
+              :class="{'is-invalid': isSubmitted && $v.setorForm.NOME_SETOR.$error}"
             />
             <div
               v-if="isSubmitted && !$v.setorForm.NOME_SETOR.required"
@@ -38,6 +38,7 @@ import { required } from 'vuelidate/lib/validators';
 import SetorService from '../../../services/SetorService';
 
 export default {
+  name: 'CriarSetorComponent',
   data() {
     return {
       setorForm: {
