@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import App from './App.vue';
 import router from './router';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 library.add(faUserPlus, faUserEdit, faTrash);
 

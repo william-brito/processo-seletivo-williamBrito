@@ -1,3 +1,5 @@
+Mais detalhes no: README.md
+
 Observação Inicial: O padrão do projeto no Git foi alterado de 'Master' para 'Main' para se adequar à atualização do GitHub
 
 .:Descrições do Projeto:.
