@@ -8,9 +8,8 @@
 Foi implementado apenas as classes relacionadas a entidade Funcionario.
 
 ## Layout web
-![Web 1](https://github.com/william-brito/processo-seletivo-williamBrito/blob/main/preview-set/criarFuncionarioVersao2.jpg)
-
-![Web 2](https://github.com/william-brito/processo-seletivo-williamBrito/blob/main/preview-set/inicioVersao2.jpg)
+![Web 1](https://github.com/william-brito/processo-seletivo-williamBrito/blob/main/preview-set/inicioVersao2.jpg)
+![Web 2](https://github.com/william-brito/processo-seletivo-williamBrito/blob/main/preview-set/criarFuncionarioVersao2.jpg)
 
 # Tecnologias utilizadas
 ## Back end
@@ -41,9 +40,6 @@ Pré-requisitos: Java 15, Porta 3000.
 
 # clonar repositório
 git clone https://github.com/william-brito/processo-seletivo-williamBrito
-
-# clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
 
 # Iniciar Banco de Dados
 
