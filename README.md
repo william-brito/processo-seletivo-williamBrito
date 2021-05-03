@@ -1,57 +1,114 @@
-# processo-seletivo
-O teste foi feito com uma arquitetura bem simples para facilitar o entendimento. É um pequeno sistema para gerenciar os funcionários dos setores.
-É possível **exibir** todos os funcionários existentes se os dados forem inseridos manualmente na base de dados.
+# Processo Seletivo - HEPTA
+## Sobre o objetivo do teste
 
-É preciso que você implemente as funcionalidades de **inserir**, **editar** e 
-**deletar** um funcionário.
+"O teste foi feito com uma arquitetura bem simples para facilitar o entendimento. É um pequeno sistema para gerenciar os funcionários dos setores. É possível exibir todos os funcionários existentes se os dados forem inseridos manualmente na base de dados."
+
+É preciso que implementar as funcionalidades de **inserir**, **editar** e **deletar** um funcionário.
 
 Foi implementado apenas as classes relacionadas a entidade Funcionario.
 
-# Requisitos
+## Layout web
+![Web 1](https://github.com/william-brito/processo-seletivo-williamBrito/blob/main/preview-set/inicioVersao2.jpg)
+![Web 2](https://github.com/william-brito/processo-seletivo-williamBrito/blob/main/preview-set/criarFuncionarioVersao2.jpg)
 
-1. Continuar o desenvolvimento do sistema
-2. Utilizar no Front-end HTML, CSS e Javascript (Foi implementado utilizando Vue e Axios)
-3. Web Services RESTful em Java usando Jersey
-4. Integração com Banco de Dados 
-5. Testes de integração
+# Tecnologias utilizadas
+## Back end
+- Java
+- Jersey
+- JPA / Hibernate
+- Maven
+## Front end
+- HTML / CSS / JS 
+- VUE.JS
+- NODE.JS
+- Axios
+- Sweetalert2
+- Vuelidation
 
-# O que fazer agora
+## Implantação em produção
+- IDE: Eclipse.
+- Back end: Apache Tomcat v9
+- Front end web: Node.js
+- Banco de dados: Mysql
 
-Faça um clone desse projeto e divida em commits os passos necessários para a
-produção do resultado final. Quando terminar envie o link do projeto no seu repositório para gustavo.oliveira@hepta.com.br com o título "Processo seletivo - [seu nome]", se você nunca usou git crie uma conta no gitlab e 
-dê uma olhada nos links abaixo.
+# Como executar o projeto
 
-Lembre-se de adicionar um arquivo HOWTO.md descrevendo o necessário para execução 
-da aplicação e dos testes.  
+## Back end
+Pré-requisitos: Java 15, Porta 3000.
 
-Trabalhamos com várias tecnologias porém a maioria dos sistemas são em Java no back-end e Vue.js no front-end, JUnit para os testes de integração.
+```bash
 
-# Avaliação
+# clonar repositório
+git clone https://github.com/william-brito/processo-seletivo-williamBrito
 
-O objetivo desse teste é medir o seu conhecimento sobre as boas práticas de programação, facilidade em aprender novas tecnologias e de melhorar/continuar projetos em andamento.
+# Iniciar Banco de Dados
 
-Você tem o prazo de 1 semana, a partir do dia posterior ao de envio. 
-Mesmo que não complete todo o teste, envie mesmo assim, 
-ele não é de caráter desclassificatório, mas sim, classificatório. 
-Sinta-se a vontade para implementar mais funcionalidades e alterações de interface. 
+# Criar banco de dados com o nome de "funcionarios_prova".
+CREATE DATABASE funcionarios_prova
 
+# Instalar Apache Tomcat v9
 
-# Links úteis
+# Mudar localhost do Apache Tomcat para porta 3000 (No Eclipse, clicar duas vezes sobre o server, e alterar para 3000 no menu "port")
 
-* Git
-    * [git - guia prático](http://rogerdudler.github.io/git-guide/index.pt_BR.html)
-    * [git - documentacao](https://git-scm.com/book/pt-pt/v2)
+# iniciar projeto (pasta src)
+O Hibernate se encarregará de criar as tabelas e colunas referentes às Classes: Funcionário e Setor, e as inserirá dentro da Base de Dados "funcionarios_prova"
+Criar-se-á, então, no banco de dados "funcionarios_prova" a seguinte estrutura:
 
-* Web services Java e Jersey
-    * [WebService](https://www.ibm.com/developerworks/web/library/wa-aj-tomcat/)
+create table Funcionario ( 
+  ID_FUNCIONARIO 
+  integer not null auto_increment, 
+  DS_EMAIL varchar(30), 
+  NU_IDADE integer, 
+  NOME_FUNCIONARIO varchar(100), 
+  NU_SALARIO double precision, 
+  FK_SETOR integer, primary key (ID_FUNCIONARIO) ) 
+engine=InnoDB Hibernate:
 
-* HTML/CSS e Javascript 
-    * [Tudo sobre Javascript, HTML e CSS](https://www.w3schools.com/whatis/) 
-    * [HTML](https://www.w3schools.com/html/default.asp)
-    * [CSS](https://www.w3schools.com/css/default.asp)
-    * [Javascript](https://www.w3schools.com/js/default.asp)
-    * [bootstrap](https://getbootstrap.com/)
-    * [W3 Bootstrap](https://www.w3schools.com/bootstrap/default.asp)
-    * [Vue JS](https://vuejs.org/) - Uma lib JS baseada em Angular porém mais simples.
-    * [Axio](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html) - Lib JS recomendada para Vue JS para simplificar XMLHttpRequests.
+create table Setor (
+   ID_SETOR integer not null auto_increment,
+    NOME_SETOR varchar(30),
+    primary key (ID_SETOR)
+) engine=InnoDB
+
+Hibernate:
+
+alter table Funcionario 
+   add constraint FK2peemlj28pdi3f8sp2ef28hhf 
+   foreign key (FK_SETOR) 
+   references Setor (ID_SETOR)
+   
+# A fim de se realizar os testes unitários no back end, acessar a pasta "test" e os pacotes onde se encontram os respectivos arquivos:
+
+    "FuncionarioServiceTest.java";
+    "FuncionarioDAOTest.java";
+    "SetorServiceTest.java";
+    "SetorDAOTest.java";
+
+(os testes deverão ser rodados no modo "JUnit")
+-A fim de se observar com mais assertividade as adições, alterações e remoções, deve-se testar, de preferência, na seguinte ordem:
+-FuncionarioServiceTest (Que criará um Setor junto ao funcionário, para testes) 2 - FuncionariosDAOTest 3 - SetorDAOTest 4 - SetorServiceTest
+```
+
+## Front end web
+Pré-requisitos: node.js 
+
+```bash
+# Instalar o seguinte programa:
+-node.js
+
+# Adentrar a pasta do projeto
+cd front-end-vue
+
+# Preparar cliente: 
+npm install -g @vue/cli 
+
+# Executar front-end:
+npm run serve
+
+```
+# Autor
+
+William Brito de Oliveira
+
+https://github.com/william-brito
 
